@@ -1,4 +1,7 @@
-# Binary and Linerar Search
+# Binary and Linear Search
+
+Contains Binary and Linear Search algorithm implementation to study their worst and best time complexities.
+[link to the graph](https://docs.google.com/spreadsheets/d/1DARufftgtmJ-bZV139z3gfqCX-kCkiBaFpmXTdDEq3w/edit?usp=sharing)
 
 #### Testing Binary and Linear Search
 
