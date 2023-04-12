@@ -1,9 +1,6 @@
 # Binary and Linear Search
 
-Contains Binary and Linear Search algorithm implementation to study their worst and best time complexities.
 [link to the graph](https://docs.google.com/spreadsheets/d/1DARufftgtmJ-bZV139z3gfqCX-kCkiBaFpmXTdDEq3w/edit?usp=sharing)
-
-Both linear search and binary search can be good options depending on the use case.The best case for binary search occurs when the data to be searched is located in the middle of the list, while for linear search it would be when the data is located at the beginning of the list. However, in the worst-case scenario, neither linear search nor binary search can find the data in the list.
 
 **Binary Search**  
   - Best Case: O(1)
