@@ -6,9 +6,9 @@ import (
 )
 
 const (
-	START    = 1
-	LIMIT    = 1000
-	STEPSIZE = 50
+	START    = 1000
+	LIMIT    = 2000
+	STEPSIZE = 100
 )
 
 func generateArray[T int | float64](start, end, step int) []T {
@@ -35,7 +35,7 @@ func TestBinarySearch(t *testing.T) {
 	}
 }
 
-func BenchmarkBinarySearch(b *testing.B) {
+func BenchmarkBinarySearchWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
 		data := generateArray[int](0, i, 1)
 
@@ -50,7 +50,22 @@ func BenchmarkBinarySearch(b *testing.B) {
 	}
 }
 
-func BenchmarkLinearSearch(b *testing.B) {
+func BenchmarkBinarySearchBest(b *testing.B) {
+	for i := START; i < LIMIT; i += STEPSIZE {
+		data := generateArray[int](0, i, 1)
+
+		b.Run(
+			fmt.Sprintf("array_size_%d", i),
+			func(b *testing.B) {
+				for i := 0; i < b.N; i++ {
+					BinarySearch(int(i/2), &data)
+				}
+			},
+		)
+	}
+}
+
+func BenchmarkLinearSearchWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
 		data := generateArray[int](0, i, 1)
 
@@ -59,6 +74,21 @@ func BenchmarkLinearSearch(b *testing.B) {
 			func(b *testing.B) {
 				for i := 0; i < b.N; i++ {
 					LinearSearch(i+1, &data)
+				}
+			},
+		)
+	}
+}
+
+func BenchmarkLinearSearchBest(b *testing.B) {
+	for i := START; i < LIMIT; i += STEPSIZE {
+		data := generateArray[int](0, i, 1)
+
+		b.Run(
+			fmt.Sprintf("array_size_%d", i),
+			func(b *testing.B) {
+				for i := 0; i < b.N; i++ {
+					LinearSearch(0, &data)
 				}
 			},
 		)
