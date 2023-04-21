@@ -9,13 +9,13 @@ import (
 )
 
 const (
-	START    = 1000
-	LIMIT    = 2000
-	STEPSIZE = 100
+	START    = 1
+	LIMIT    = 1000
+	STEPSIZE = 10
 )
 
 func TestInsertionSort(t *testing.T) {
-	data := []int{0, 1, 2, 3, 4, 5, 7, 6, 8, 9}
+	data := []int{04, 16, 22, 33, 41, 5, 57, 86, 18, 49}
 	data = InsertionSort(data)
 	if !sort.IntsAreSorted(data) {
 		t.Error("test data and sorted data not equal.")
@@ -23,17 +23,13 @@ func TestInsertionSort(t *testing.T) {
 }
 
 func TestMergeSort(t *testing.T) {
-	data := []int{0, 1, 2, 3, 4, 5, 7, 6, 8, 9}
+	data := []int{01, 11, 42, 23, 4, 5,37, 6, 5, 2}
 	data = MergeSort(data)
 	if !sort.IntsAreSorted(data) {
 		t.Error("test data and sorted data not equal.")
 	}
 }
 
-// Insertion Sort
-// Worst Case, list is in reverse order
-// Best Case, list is already sorted
-// Average Case
 func BenchmarkInsertionSortWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
 		data := utils.GenerateArray[int](i, 0, -1)
@@ -49,9 +45,6 @@ func BenchmarkInsertionSortWorst(b *testing.B) {
 	}
 }
 
-// Merge Sort
-// Worst Case, Bujhina maile
-// Best Case, Already Sorted
 func BenchmarkMergeSortWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
 		data := utils.GenerateArray[int](i, 0, -1)

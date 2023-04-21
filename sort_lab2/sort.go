@@ -1,16 +1,17 @@
 package sort
 
 func InsertionSort(arr []int) []int {
-	for i := 1; i < len(arr); i++ {
-		key := arr[i]
-		j := i - 1
-		for j >= 0 && arr[j] > key {
-			arr[j+1] = arr[j]
-			j = j - 1
-		}
-		arr[j+1] = key
-	}
-	return arr
+	var n = len(arr)
+    for i := 1; i < n; i++ {
+        j := i
+        for j > 0 {
+            if arr[j-1] > arr[j] {
+                arr[j-1], arr[j] = arr[j], arr[j-1]
+            }
+            j = j - 1
+        }
+    }
+    return arr
 }
 
 func MergeSort(arr []int) []int {
