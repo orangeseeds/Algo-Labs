@@ -3,6 +3,8 @@ package search
 import (
 	"fmt"
 	"testing"
+
+	"github.com/orangeseeds/algoLabs/utils"
 )
 
 const (
@@ -10,14 +12,6 @@ const (
 	LIMIT    = 2000
 	STEPSIZE = 100
 )
-
-func generateArray[T int | float64](start, end, step int) []T {
-	arr := []T{}
-	for i := start; i < end; i += step {
-		arr = append(arr, T(i))
-	}
-	return arr
-}
 
 func TestLinearSearch(t *testing.T) {
 	data := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
@@ -37,7 +31,7 @@ func TestBinarySearch(t *testing.T) {
 
 func BenchmarkBinarySearchWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
-		data := generateArray[int](0, i, 1)
+		data := utils.GenerateArray[int](0, i, 1)
 
 		b.Run(
 			fmt.Sprintf("array_size_%d", i),
@@ -52,7 +46,7 @@ func BenchmarkBinarySearchWorst(b *testing.B) {
 
 func BenchmarkBinarySearchBest(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
-		data := generateArray[int](0, i, 1)
+		data := utils.GenerateArray[int](0, i, 1)
 
 		b.Run(
 			fmt.Sprintf("array_size_%d", i),
@@ -67,7 +61,7 @@ func BenchmarkBinarySearchBest(b *testing.B) {
 
 func BenchmarkLinearSearchWorst(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
-		data := generateArray[int](0, i, 1)
+		data := utils.GenerateArray[int](0, i, 1)
 
 		b.Run(
 			fmt.Sprintf("array_size_%d", i),
@@ -82,7 +76,7 @@ func BenchmarkLinearSearchWorst(b *testing.B) {
 
 func BenchmarkLinearSearchBest(b *testing.B) {
 	for i := START; i < LIMIT; i += STEPSIZE {
-		data := generateArray[int](0, i, 1)
+		data := utils.GenerateArray[int](0, i, 1)
 
 		b.Run(
 			fmt.Sprintf("array_size_%d", i),
