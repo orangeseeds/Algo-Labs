@@ -1,5 +1,5 @@
 
-# Binary and Linear Search
+# Insertion Sort and Merge Sort
 
 [link to the graph](https://docs.google.com/spreadsheets/d/1DARufftgtmJ-bZV139z3gfqCX-kCkiBaFpmXTdDEq3w/edit#gid=1449020709)
 
